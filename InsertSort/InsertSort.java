@@ -1,25 +1,27 @@
-import java.util.Random;
-
+/**
+ * 直接插入排序
+ * 1、定义哨兵，和有序区域的工作指针
+ * 2、从第二位开始循环，默认第一位就是有序的，所以不需要进入循环
+ * 3、工作指针指向有序队列的末尾
+ * 4、将无序队列的一个值赋给哨兵，即用临时变量来存储无序队列的第一个值
+ * 5、工作指针从有序队列最后一位向前扫描，找到哨兵暂存值所应该排放的位置
+ * 判断条件就是 工作指针没有越界，指针位置的值与哨兵暂存值大小的（按正序或倒序）比较
+ * 6、当哨兵中值小于（或大于）有序队列中值时，将有序队列的值向后移动，每次移动一个，直到
+ * 找到哨兵中值的位置，停止移动，退出循环，
+ * 7、将哨兵值放入空白位置
+ * 
+ * 直接插入排序空间复杂度
+ * O(1)
+ * 直接插入排序时间复杂度 
+ * 最坏情况O(n^2)
+ * 一般情况O(n^2)
+ * 最好情况O(n)
+ * 					
+ * 
+ * */
 
 public class InsertSort {
-	
-	public static void main(String[] args) {
-		Random r = new Random(100);
-		int a[] = new int[20];
-		for (int i = 0; i < 20; i++) {
-			a[i]= Math.abs(r.nextInt())%100;
-		}
-		System.out.println("源数据为：");
-		for(int z=0;z<a.length;z++){
-			System.out.print(a[z]+",");
-		}
-		int b []=insert_sort(a);
-		System.out.println("排序后的数据为：");
-		for(int k=0;k<b.length;k++){
-			System.out.print(b[k]+",");
-		}
-	}
-	public static int [] insert_sort(int a[]){
+	public int [] insert_sort(int a[]){
 		int sentinel ,j;
 		for(int i=1;i <a.length;i++){
 			j=i-1;//工作指针指向有序队列
