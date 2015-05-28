@@ -28,14 +28,15 @@ public class ProgressSort {
 		int insert [] = insertSort.insert_sort(a);
 		int select [] = selectSort.selectSort(a);
 		int merge [] = mergeSort.merge(a);
-//		quickSort.quickSort(a, 0, a.length-1);
-//		System.out.println(a[0]);
+		int shell [] = shellSort.shellSort(a);
+//		int quick [] = quickSort.quick(a);
 		
 		p.print(bubble, "after","√∞≈›≈≈–Ú");
 		p.print(binsert, "after", "∂˛¬∑πÈ≤¢≈≈–Ú");
 		p.print(insert, "after", "÷±Ω”≤Â»Î≈≈–Ú");
 		p.print(select, "after", "—°‘Ò≈≈–Ú");
 		p.print(merge, "after", "πÈ≤¢≈≈–Ú");
+		p.print(shell, "after", "œ£∂˚≈≈–Ú");
 //		p.print(quick, "after", "øÏÀŸ≈≈–Ú");
 		
 		
