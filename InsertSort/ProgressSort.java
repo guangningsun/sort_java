@@ -27,6 +27,7 @@ public class ProgressSort {
 		int binsert [] = bInsertSort.bInsertSort(a);
 		int insert [] = insertSort.insert_sort(a);
 		int select [] = selectSort.selectSort(a);
+		int merge [] = mergeSort.merge(a);
 //		quickSort.quickSort(a, 0, a.length-1);
 //		System.out.println(a[0]);
 		
@@ -34,6 +35,7 @@ public class ProgressSort {
 		p.print(binsert, "after", "二路归并排序");
 		p.print(insert, "after", "直接插入排序");
 		p.print(select, "after", "选择排序");
+		p.print(merge, "after", "归并排序");
 //		p.print(quick, "after", "快速排序");
 		
 		
