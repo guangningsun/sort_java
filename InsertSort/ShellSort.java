@@ -1,26 +1,17 @@
-import java.util.Random;
 
 public class ShellSort {
-	public static int[] shellSort(int a[]) {
-
-		return null;
+	public int[] shellSort(int a[]) {
+		for(int increment = a.length/2;increment>0;increment /=2){
+			for(int i=increment; i<a.length;i++){
+				int temp = a[i];// 建立哨兵
+				int j = i-increment;
+				while(j>=0&&temp<a[j]){
+					a[j+increment]=a[j];
+					j= j-increment;
+				}
+				a[j+increment]=temp;
+			}
+		}
+		return a;
 	}
-
-	public static void main(String[] args) {
-		Random r = new Random(100);
-		int a[] = new int[20];
-		for (int i = 0; i < 20; i++) {
-			a[i] = Math.abs(r.nextInt()) % 100;
-		}
-		System.out.println("源数据为：");
-		for (int z = 0; z < a.length; z++) {
-			System.out.print(a[z] + ",");
-		}
-		int b[] = shellSort(a);
-		System.out.println("排序后的数据为：");
-		for (int k = 0; k < b.length; k++) {
-			System.out.print(b[k] + ",");
-		}
-	}
-
 }
