@@ -1,24 +1,20 @@
-import java.util.Random;
-
+/**
+ * 折半插入排序
+ * 将直接插入排序中寻找A[i]的插入位置的方法改为采用折半比较
+ * 1、同样认为第一位是有序的，从第二位开始遍历整个数组
+ * 2、如果无序队列第一个值小于或大于有序队列的最后一个值，则进行插入排序
+ * 3、声明哨兵，折半插入要扫描的左边界和有边界，并将无序队列的第一位值赋给哨兵
+ * 4、当扫描边界左侧小于右侧时，通过折半查找来找到 哨兵要插入的位置
+ * 5、查找的最终为low为哨兵要插入的位置，将从low到有序区末尾的值整体后移
+ * 6、将哨兵插入low的位置，结束本次插入
+ * 
+ * 空间复杂度为O(1)   附加空间仍然是1
+ * 时间复杂度为O(n^2) 与直接插入相比折半查找只是减少了比较次数，但是元素的移动次数不变
+ * 
+ * */
 
 public class BInsertSort {
-	public static void main(String[] args) {
-		Random r = new Random(100);
-		int a[] = new int[20];
-		for (int i = 0; i < 20; i++) {
-			a[i]= Math.abs(r.nextInt())%100;
-		}
-		System.out.println("源数据为：");
-		for(int z=0;z<a.length;z++){
-			System.out.print(a[z]+",");
-		}
-		int b []=bInsertSort(a);
-		System.out.println("排序后的数据为：");
-		for(int k=0;k<b.length;k++){
-			System.out.print(b[k]+",");
-		}
-	}
-	public static int[] bInsertSort(int a[]){
+	public int[] bInsertSort(int a[]){
 		for(int i=1;i<a.length;i++){//同样认为第一个是有序的
 			if(a[i]<a[i-1]){ //如果无序队列第一个值小于或大于有序队列的最后一个值，则进行插入排序
 				int sentinel; //声明哨兵
@@ -42,8 +38,5 @@ public class BInsertSort {
 			}
 			}
 		return a;
-	}
-	public void print(){
-		
 	}
 }
